@@ -72,7 +72,7 @@ public class FindLoopTest {
 
     @Test
     public void whenNoSuchElementThenMinus1() {
-        int[] input = new int[]{5, 2, 10, 2, 4};
+        int[] input = new int[]{5, 0, 10, 2, 4};
         int value = 20;
         int start = 2;
         int finish = 4;
