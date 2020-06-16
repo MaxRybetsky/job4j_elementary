@@ -43,4 +43,30 @@ public class PointTest {
         // Comparison of the received value with the expected
         Assert.assertEquals(expected, result, 0.01);
     }
+
+    @Test
+    public void whenX5Y5Z5AndX25Y25Z25ThenDistIs34() {
+        // Input parameters
+        Point a = new Point(5, 5, 5);
+        Point b = new Point(25, 25, 25);
+        // Expected value
+        double expected = 34.64;
+        // Target method call
+        double result = a.distance3d(b);
+        // Comparison of the received value with the expected
+        Assert.assertEquals(expected, result, 0.01);
+    }
+
+    @Test
+    public void whenX100Y100Z100AndX400Y500Z600ThenDistIs707() {
+        // Input parameters
+        Point a = new Point(100, 100, 100);
+        Point b = new Point(400, 500, 600);
+        // Expected value
+        double expected = 707.10;
+        // Target method call
+        double result = a.distance3d(b);
+        // Comparison of the received value with the expected
+        Assert.assertEquals(expected, result, 0.01);
+    }
 }
