@@ -66,15 +66,43 @@ public class Tracker {
 
     /* Метод получения элемента Item по ID
      *
-     * @param id - id заявки
+     * @param id идентификатор заявки
      * @return Объект класса Item, если он есть в массиве, иначе - null
      */
     public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    /**
+     * Метод находит заявку по id, удаляет ее и заменяет на новую
+     *
+     * @param id   идентификатор заявки, которую надо удалить
+     * @param item заявка, на которую необходимо заменить исходную заявку
+     * @return true - если завка была успешно заменена, иначе - false
+     */
+    public boolean replace(int id, Item item) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        }
+        item.setId(id);
+        items[index] = item;
+        return true;
+    }
+
+    /**
+     * Метод ищет индекс элемента Item в массиве items по его id
+     *
+     * @param id - уникальное значение для каждого элемента Item.
+     * @return индекс искомого Item, если элемент с таким id есть в массиве, иначе -1
+     */
+    private int indexOf(int id) {
         for (int i = 0; i < position; i++) {
             if (items[i].getId() == id) {
-                return items[i];
+                return i;
             }
         }
-        return null;
+        return -1;
     }
 }
