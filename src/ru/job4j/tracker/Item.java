@@ -4,16 +4,23 @@ public class Item {
     private String id;
     private String name;
 
-    public Item() {
+    public Item(String name) {
+        this.name = name;
     }
 
-    public Item(String id) {
-        this.id = id;
-        this.name = "No name";
+    public String getId() {
+        return id;
     }
 
-    public Item(String id, String name) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
 }
