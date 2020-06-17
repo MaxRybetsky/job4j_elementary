@@ -92,6 +92,23 @@ public class Tracker {
     }
 
     /**
+     * Метод удаляет заявку по ее id
+     *
+     * @param id идентификатор заявки
+     * @return true - если удаление прошло успешно, иначе - false
+     */
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index == -1) {
+            return false;
+        }
+        System.arraycopy(items, index + 1, items, index, position - index);
+        items[position - 1] = null;
+        position--;
+        return true;
+    }
+
+    /**
      * Метод ищет индекс элемента Item в массиве items по его id
      *
      * @param id - уникальное значение для каждого элемента Item.
