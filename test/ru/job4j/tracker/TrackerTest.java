@@ -80,7 +80,7 @@ public class TrackerTest {
         tracker.add(item2);
         Item expected = null;
         assertThat(
-                tracker.findById("123"),
+                tracker.findById(123),
                 is(expected)
         );
     }

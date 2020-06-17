@@ -10,6 +10,11 @@ public class Tracker {
     private final Item[] items = new Item[100];
 
     /**
+     * Переменная для обеспечения уникальности заявки
+     */
+    private int ids = 1;
+
+    /**
      * Указатель ячейки для новой заявки.
      */
     private int position = 0;
@@ -20,7 +25,7 @@ public class Tracker {
      * @param item новая заявка
      */
     public Item add(Item item) {
-        item.setId(generateId());
+        item.setId(ids++);
         items[position++] = item;
         return item;
     }
@@ -64,23 +69,12 @@ public class Tracker {
      * @param id - id заявки
      * @return Объект класса Item, если он есть в массиве, иначе - null
      */
-    public Item findById(String id) {
+    public Item findById(int id) {
         for (int i = 0; i < position; i++) {
-            if (items[i].getId().equals(id)) {
+            if (items[i].getId() == id) {
                 return items[i];
             }
         }
         return null;
-    }
-
-    /**
-     * Метод генерирует уникальный ключ для заявки.
-     * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
-     *
-     * @return Уникальный ключ.
-     */
-    private String generateId() {
-        Random rndm = new Random();
-        return String.valueOf(rndm.nextLong() + System.currentTimeMillis());
     }
 }
