@@ -52,10 +52,10 @@ public class StartUI {
                 Item[] items = tracker.findByName(name);
                 if (items.length == 0) {
                     input.print("No items with this key name, try again.");
-                    continue;
-                }
-                for (int i = 0; i < items.length; i++) {
-                    input.print(items[i].toString());
+                } else {
+                    for (int i = 0; i < items.length; i++) {
+                        input.print(items[i].toString());
+                    }
                 }
             } else if (select == 6) {
                 run = false;
