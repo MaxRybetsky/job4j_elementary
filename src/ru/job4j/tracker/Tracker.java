@@ -36,15 +36,7 @@ public class Tracker {
      * @return Массив ненулевых элементов Item
      */
     public Item[] findAll() {
-        Item[] result = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < position; i++) {
-            if (items[i] != null) {
-                result[size] = items[i];
-                size++;
-            }
-        }
-        return Arrays.copyOf(result, size);
+        return Arrays.copyOf(items, position);
     }
 
     /* Метод получения списка по имени
