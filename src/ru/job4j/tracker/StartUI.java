@@ -21,12 +21,7 @@ public class StartUI {
             } else if (select == 2) {
                 input.print("=== Edit item ====");
                 int id = input.askInt("Enter ID of item:");
-                Item item = tracker.findById(id);
-                if (item == null) {
-                    input.print("No such item!");
-                    continue;
-                }
-                input.print(item.toString());
+                input.print(tracker.findById(id).toString());
                 String newName = input.askStr("Enter new name: ");
                 if (tracker.replace(id, new Item(newName))) {
                     input.print("Item was changed!");
@@ -78,7 +73,6 @@ public class StartUI {
         input.print("5. Find items by name");
         input.print("6. Exit Program");
     }
-
 
     public static void main(String[] args) {
         Input input = new ConsoleInput();
